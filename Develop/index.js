@@ -64,7 +64,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Provide FAQs?",
+        message: "Provide FAQs ?",
         name: "Frequently asked question the user might have here. "
     }
 ];
