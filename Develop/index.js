@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 // array of questions for user
@@ -8,50 +7,28 @@ const questions = [
       
     {
         type: "input",
-        message: "What is your Project Tittle?",
-        name: "projectTittle"
+        name: "projectTitle",
+        message: "What is your Project Title?"
     },
     {
         type: 'input',
         name: 'description',
-        message: 'Provide a description of the project (Required)',
-    //     when: ({ confirmDes }) => {
-    //         if (confirmDes) {
-    //           return true;
-    //         } else {
-    //           return false;
-    //         }
-    //       }
-        },
-      {
-        type: "input",
-        message: "What are the steps required to install your project? Provide a step-by-step description to get development running.",
-        name: "installationProcess"
+        message: 'Provide a description of the project',
     },
     {
         type: "input",
-        message: "Provide instructions for use.",
-        name: "instruction"
+        name: "installation",
+        message: "What are the steps required to install your project? Provide a step-by-step description to get development running."
     },
     {
         type: "input",
-        message: "Provide instructions examples for use.",
-        name: "instructionExample"
+        name: "Usage",
+        message: "Provide instructions for use."
     },
     {
         type: "input",
-        message: "provide License name ",
-        name: "licenseName"
-    },
-    {
-        type: "input",
-        message: "provide License url ",
-        name: "licenseUrl"
-    },
-    {
-        type: "input",
-        message: "Please enter git hub user names of the contributor if any (If there are mulitple contributor, seperate names with comma and no space. )",
-        name: "contributorsGitUserName"
+        name: "contributors",
+        message: "Please provide the contributing parties"
     },
     {
         type: "input",
@@ -60,35 +37,67 @@ const questions = [
     },
     {
         type: "input",
-        message: "Provide FAQs ?",
+        name: "licenseName",
+        message: "provide License name",
+        choices: ['MIT', 'ISC', 'Apache License 2.0', 'Mozilla Public License 2.0']
+    },
+    {
+        type: "input",
+        name: "badge",
+        message: "Please provide the badges links that you want"
+    },
+    {
+        type: "input",
+        message: "questions",
         name: "Frequently asked question the user might have here. "
-    }
+    },
+    {
+        type: "input",
+        name: "username",
+        message: "What is your github user name?"
+    },
+    {
+        type: "input",
+        name: "repo",
+        message: "What is your repo link?"
+    },
 ];
 
 
-fs.writeToFile("newtxt.md", fileName, function(error) {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log('Done!');
-    }
-});
 
-// function to write README file
-function writeToFile(fileName, data) {
-
-    return false.writeFileSync(path.join(process.cwd(), filename), data);
-}
+// // function to write README file
+function writeToFile(fileName, answers) {
+    fileName = fs.writeFile("newtxt.md", generateMarkdown((answers)),function(error) {
+        if (error) {
+            console.log(error);
+        throw error;
+        };
+    });
+};
 
 // function to initialize program
 function init() {
-    // questions();
-    inquirer.prompt(questions)
-    // once the user answers questions, the answers are witen to newREADME.md
-    .then(
-        answers => {writeToFile('newtxt.md', generateMarkdown({answers}))
-        }) 
-}
+    inquirer
+    .prompt(questions)
+    .then(function(data){
+        console.log(data);
+    writeToFile("newtxt.md", data)
+    
+        console.log("Congratulations! Your new README file has been created. Look for the file labled newtxt.md.");
+    });
+};
+
 
 // function call to initialize program
 init();
+
+
+
+    // questions();
+    // inquirer.prompt(questions)
+    // // once the user answers questions, the answers are witen to newREADME.md
+    // .then(
+    //     answers => {writeToFile('newtxt.md', generateMarkdown({answers}))
+    //     }) 
+
+
