@@ -3,9 +3,8 @@
 const inquirer = require("inquirer");
 // array of questions for user
 
-inquirer
-const questions = () => {
-    return inquirer.prompt([
+const questions = [
+      
     {
         type: 'input',
         name: 'github',
@@ -20,14 +19,14 @@ const questions = () => {
         type: 'input',
         name: 'description',
         message: 'Provide a description of the project (Required)',
-        when: ({ confirmDes }) => {
-            if (confirmDes) {
-              return true;
-            } else {
-              return false;
-            }
-          }
-      },
+    //     when: ({ confirmDes }) => {
+    //         if (confirmDes) {
+    //           return true;
+    //         } else {
+    //           return false;
+    //         }
+    //       }
+        },
       {
         type: "input",
         message: "What are the steps required to install your project? Provide a step-by-step description to get development running.",
@@ -65,19 +64,23 @@ const questions = () => {
     },
     {
         type: "input",
-        message: "questions",
+        message: "Provide FAQs?",
         name: "Frequently asked question the user might have here. "
     }
-])};
+];
 
 // function to write README file
 function writeToFile(fileName, data) {
+
+    return false.writetoFile(path.join(process.cwd(), filename), data);
 }
 
 // function to initialize program
 function init() {
-    inquire.prompt(questions)
+    inquirer.prompt(questions)
+    .then(writeToFile) 
 }
+// questions();
 
 
 // function call to initialize program
