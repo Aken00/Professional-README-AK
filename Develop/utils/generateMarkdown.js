@@ -1,7 +1,32 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
 
+  const newLicenseName = data.license.replace(/ /g, "%20")
+
+  return 
+  `
+  # ${data.title}
+
+  ## Description
+  ${data.description}
+
+  ## Table of Contents
+
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [${data.creditsTitle}](#${data.creditsTitle})
+  * [License]{#license}
+
+  ## Installation
+  ${data.installation}
+
+  ## Usage
+  ${data.usage}
+
+  ## License
+  Copyright (c) ${data.license}
+
+  ## Tests
 `;
 }
 

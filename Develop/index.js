@@ -1,16 +1,12 @@
-
+const fs = require('fs');
 
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 // array of questions for user
 
 const questions = [
       
     {
-        type: 'input',
-        name: 'github',
-        message: 'Enter your GitHub Username'
-      },
-      {
         type: "input",
         message: "What is your Project Tittle?",
         name: "projectTittle"
@@ -69,19 +65,30 @@ const questions = [
     }
 ];
 
+
+fs.writeToFile("newtxt.md", fileName, function(error) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Done!');
+    }
+});
+
 // function to write README file
 function writeToFile(fileName, data) {
 
-    return false.writetoFile(path.join(process.cwd(), filename), data);
+    return false.writeFileSync(path.join(process.cwd(), filename), data);
 }
 
 // function to initialize program
 function init() {
+    // questions();
     inquirer.prompt(questions)
-    .then(writeToFile) 
+    // once the user answers questions, the answers are witen to newREADME.md
+    .then(
+        answers => {writeToFile('newtxt.md', generateMarkdown({answers}))
+        }) 
 }
-// questions();
-
 
 // function call to initialize program
 init();
