@@ -4,18 +4,20 @@ function generateMarkdown(data) {
   return `
   # ${data.projectTitle}
 
+  [![License](https://img.shields.io/badge/license-${data.license}-blue.svg)
+
   ## Description
   ${data.description}
 
-  ## Instructions
-  ${data.instruction}
-
   ## Table of Contents
 
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [${data.creditsTitle}](#${data.creditsTitle})
-  - [License]{#license}
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributors)
+  * [Tests](#tests)
+  * [License](#license)
+  * [Questions](#questions)
 
   ## Installation
   ${data.installation}
@@ -24,22 +26,19 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## Contributors
-  ${data.contributors}
+  ${data.contributors || ''}
 
   ## Tests
   ${data.test}
 
   ## License
-  Copyright (c) ${data.license}
+  Copyright (c) ${data.name} All rights reserved. 
+  Licensed under ${data.license}
 
   ## Questions
-  ${data.questions}
-
-  ## Repository
-  - [Project Repo](${data.repo})
-
-  ## GitHub
-  - 
+  * Github Username: ${data.username}
+  * [Project Repo](https://www.github.com/${data.profile})
+  * You can reach me at (${data.email})
 
 `;
 }
