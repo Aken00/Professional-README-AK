@@ -148,12 +148,3 @@ function init() {
 init();
 
 
-
-    // questions();
-    // inquirer.prompt(questions)
-    // // once the user answers questions, the answers are witen to newREADME.md
-    // .then(
-    //     answers => {writeToFile('newtxt.md', generateMarkdown({answers}))
-    //     }) 
-
-
