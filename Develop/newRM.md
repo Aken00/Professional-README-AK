@@ -1,10 +1,10 @@
 
-  # 2
+  # Professional README AK
 
-  [![License](https://img.shields.io/badge/license-Apache License 2.0-blue.svg)
+  [![License](https://img.shields.io/badge/license-Mozilla Public License 2.0-blue.svg)
 
   ## Description
-  3
+  Makes README.md files
 
   ## Table of Contents
 
@@ -17,20 +17,20 @@
   * [Questions](#questions)
 
   ## Installation
-  4
+  run i npm in command line
 
   ## Usage
-  undefined
+  run node index.js in command line
 
   ## Contributors
-  6
+  Aken00
 
   ## Tests
-  undefined
+  test
 
   ## License
-  Copyright (c) 1 All rights reserved. 
-  Licensed under Apache License 2.0
+  Copyright (c) Alexander Kenney All rights reserved. 
+  Licensed under Mozilla Public License 2.0
 
   ## Questions
   * Github Username: Aken00

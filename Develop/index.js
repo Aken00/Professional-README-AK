@@ -61,7 +61,7 @@ const questions = [
     },
     {
         type: "input",
-        name: "Usage",
+        name: "usage",
         message: "Provide instructions for use. (Required)",
         validate: inputUsage => {
             if (inputUsage) {
@@ -79,7 +79,7 @@ const questions = [
     },
     {
         type: "input",
-        name: "tests",
+        name: "test",
         message: "Provide examples on how to run tests."
     },
     {
